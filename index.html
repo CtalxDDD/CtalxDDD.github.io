@@ -3,179 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apologies</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      background-color: #f7f7f7;
-      animation: backgroundAnimation 3s infinite alternate;
-      transition: background-color 1s ease-in-out;
-      margin: 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    @keyframes backgroundAnimation {
-      from {
-        background-color: #f7f7f7;
-      }
-      to {
-        background-color: #f087c9;
-      }
-    }
-
-    #proposal-container {
-      margin-top: 10vh;
-    }
-
-    #cat-animation {
-      margin-bottom: 20px;
-    }
-
-    #answer-buttons {
-      margin-top: 20px;
+      font-family: 'Indie Flower', cursive;
       display: flex;
-      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      animation: colorChange 10s infinite alternate;
+      background: url('https://64.media.tumblr.com/bb52491bb4001d07c4f7542c44649f8a/940908fe8c3a4fcd-3e/s540x810/8439d3125bc1ac5fa63418b8e2a6eb5f3008b185.gif') center center fixed no-repeat;
+      background-size: cover;
     }
 
-    .answer-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      animation: floatButton 2s ease-in-out infinite alternate;
-      background: linear-gradient(45deg, #ff6b6b, #ffa07a); /* Gradient background */
-      border: none;
-      color: white;
-      border-radius: 20px;
-      transition: background 0.3s ease-in-out;
-    }
-
-    .answer-button:hover {
-      background: linear-gradient(45deg, #6c5ce7, #fd79a8); /* Gradient background on hover */
-    }
-
-    @keyframes floatButton {
-      from {
-        transform: translateY(0);
+    @keyframes colorChange {
+      0% {
+        background-color: #ffcccc;
       }
-      to {
-        transform: translateY(-5px);
+      50% {
+        background-color: #d0f6af;
+      }
+      100% {
+        background-color: #94d4eb;
       }
     }
 
     h2 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2em; /* Adjusted font size */
-      color: #6e9af3;
-      margin: 10px 0;
-      position: relative;
-      animation: flipText 10s ease-in-out infinite, glowText 8s ease-in-out infinite;
+      text-align: center;
+      font-size: 2em;
+      margin: 0;
+      padding: 10px;
+      display: inline-block;
+      animation: headingAnimation 4s infinite alternate;
+      color: #5733ff;
+      text-shadow: 2px 2px 4px #000;
     }
 
-    @keyframes flipText {
-      0%, 100% {
-        transform: perspective(400px) rotateY(0deg);
+    @keyframes headingAnimation {
+      0% {
+        color: #ff5733;
+        transform: translateZ(20px);
       }
       50% {
-        transform: perspective(400px) rotateY(180deg);
+        color: #f193cd;
+        transform: translateZ(40px);
+      }
+      100% {
+        color: #5733ff;
+        transform: translateZ(20px);
       }
     }
 
-    @keyframes glowText {
-      0%, 100% {
-        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.8);
-      }
-      50% {
-        text-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 30px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.8);
-      }
+    #apologyGifContainer {
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
+    #apologyGif {
+      width: 60%;
+      max-width: 200px;
+    }
+
+    #buttonContainer {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    #yesButton, #noButton {
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #yesButton {
+      background-color: #4CAF50; /* Green background color */
+      color: white; /* White text color */
+    }
+
+    #noButton {
+      background-color: #FF5733; /* Orange background color */
+      color: white; /* White text color */
+    }
+
+    #yesButton:hover, #noButton:hover {
+      background-color: #555; /* Darker background on hover */
+    }
+
+    /* Media Query for smaller screens */
+    @media only screen and (max-width: 600px) {
       h2 {
-        font-size: 1.8em; /* Adjusted font size for smaller screens */
-      }
-
-      .answer-button {
-        font-size: 14px;
-      }
-    }
-
-    /* Added styles for animated gifs */
-    .background-gif {
-      position: absolute;
-      width: 50px;
-      height: auto;
-      pointer-events: none;
-      animation: floatGif 5s infinite alternate;
-    }
-
-    @keyframes floatGif {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-10px);
+        font-size: 1.5em; /* Adjust font size for smaller screens */
       }
     }
   </style>
 </head>
 <body>
+  <h2>I'm Extremely Sorry Gyanu!!!<br>Do you accept my Apology?</h2>
 
-<div id="proposal-container">
-  <h2>Are you dumb Gyanu?</h2>
-  <div id="cat-animation">
-    <img src="dumbcat.gif" alt="Cat with Tulip" style="width: 80%; max-width: 150px; height: auto;">
+  <div id="apologyGifContainer">
+    <img id="apologyGif" src="cat.gif" alt="Apology GIF">
   </div>
-  <div id="answer-buttons">
-    <button class="answer-button" onclick="displayMessage()">Yes</button>
-    <button class="answer-button" onclick="moveNoButton()">No</button>
+
+  <div id="buttonContainer">
+    <button onclick="handleYesClick()" id="yesButton">Yes</button>
+    <button onclick="handleNoClick()" id="noButton">No</button>
   </div>
-</div>
 
-<!-- Adding background gifs -->
-<script>
-  // Function to create and append gifs dynamically
-  function createBackgroundGifs() {
-    const gifContainer = document.body;
-    const gifCount = 10; // Number of gifs
-
-    for (let i = 0; i < gifCount; i++) {
-      const gif = document.createElement('img');
-      gif.src = 'raincat.gif'; // Path to the gif image
-      gif.className = 'background-gif';
-
-      // Randomize the position of each gif
-      gif.style.left = `${Math.random() * 100}vw`;
-      gif.style.top = `${Math.random() * 100}vh`;
-
-      gifContainer.appendChild(gif);
+  <script>
+    function handleYesClick() {
+      // Redirect to the next page (update the URL accordingly)
+      window.location.href = 'nextPage.html';
     }
-  }
 
-  // Call the function to create gifs when the page is loaded
-  window.onload = createBackgroundGifs;
-</script>
+    function handleNoClick() {
+      const noButton = document.getElementById('noButton');
 
-<script>
-  function displayMessage() {
-    window.location.href = 'te_amo_page.html';
-  }
+      function loopBackToAreYouSure() {
+        noButton.innerText = 'Are you sure?';
+        noButton.onclick = function() {
+          noButton.innerText = "Don't do this to me Pookie";
+          noButton.onclick = function() {
+            noButton.innerText = "Let's talk again? No?";
+            noButton.onclick = function() {
+              noButton.innerText = "Please Gyanu!!!";
+              noButton.onclick = function() {
+                noButton.innerText = "No? Gyanu?";
+                noButton.onclick = function() {
+                  noButton.innerText = 'No?';
+                  noButton.onclick = function() {
+                    loopBackToAreYouSure();
+                  };
+                };
+              };
+            };
+          };
+        };
+        handleNoButtonClick(); // Added for random positioning
+      }
 
-  function moveNoButton() {
-    const noButton = document.querySelector('.answer-button:last-child');
-    const maxX = window.innerWidth - noButton.offsetWidth;
-    const maxY = window.innerHeight - noButton.offsetHeight;
+      function resetToOriginal() {
+        loopBackToAreYouSure();
+      }
 
-    // Generate random coordinates
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+      noButton.innerText = 'Are you sure?';
+      noButton.onclick = function() {
+        noButton.innerText = "Don't do this to me Pookie";
+        noButton.onclick = function() {
+          noButton.innerText = "Let's talk again? No?";
+          noButton.onclick = function() {
+            noButton.innerText = "Please Gyanu!!!";
+            noButton.onclick = function() {
+              noButton.innerText = "No? Gyanu?";
+              noButton.onclick = function() {
+                noButton.innerText = 'No?';
+                noButton.onclick = function() {
+                  resetToOriginal();
+                };
+              };
+            };
+          };
+        };
+        handleNoButtonClick(); // Added for random positioning
+      };
+    }
 
-    // Apply new coordinates to the 'No' button
-    noButton.style.position = 'absolute';
-    noButton.style.left = `${randomX}px`;
-    noButton.style.top = `${randomY}px`;
-  }
-</script>
+    function handleNoButtonClick() {
+      const noButton = document.getElementById('noButton');
 
+      function randomPosition() {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        const randomX = Math.floor(Math.random() * (viewportWidth - 100));
+        const randomY = Math.floor(Math.random() * (viewportHeight - 40));
+
+        noButton.style.position = 'absolute';
+        noButton.style.left = `${randomX}px`;
+        noButton.style.top = `${randomY}px`;
+      }
+
+      randomPosition(); // Added for random positioning
+    }
+  </script>
 </body>
 </html>
